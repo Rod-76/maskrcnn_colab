@@ -42,16 +42,28 @@ if not os.path.exists(COCO_MODEL_PATH):
 
 
 class CustomConfig(Config):
+    def __init__(self, num_classes):
+
+        if num_classes > 1:
+            raise ValueError("{} classes were found. This is only a DEMO version for evaluation purposes, and it only supports 1 class. Get the PRO version to"
+                  " continue the training: https://pysource.com/mask-rcnn-training-pro/ ".format(num_classes))
+
+        classes_number = num_classes
+        super().__init__()
+    """Configuration for training on the toy shapes dataset.
+    Derives from the base Config class and overrides values specific
+    to the toy shapes dataset.
+    """
     # Give the configuration a recognizable name
     NAME = "object"
 
     # Train on 1 GPU and 8 images per GPU. We can put multiple images on each
     # GPU because the images are small. Batch size is 8 (GPUs * images/GPU).
     GPU_COUNT = 1
-    IMAGES_PER_GPU = 2
+    IMAGES_PER_GPU = 4
 
     # Number of classes
-    NUM_CLASSES = 0 + 1
+    NUM_CLASSES = 1
 
     # Use small images for faster training. Set the limits of the small side
     # the large side, and that determines the image shape.
