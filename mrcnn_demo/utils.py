@@ -25,7 +25,7 @@ import warnings
 from distutils.version import LooseVersion
 
 # URL from which to download the latest COCO trained weights
-COCO_MODEL_URL = "https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5"
+COCO_MODEL_URL = "https://github.com/Rod-76/maskrcnn_colab/releases/download/Oyster_Mushroom/white_oyster_mask_rcnn.h5"
 
 
 ############################################################
